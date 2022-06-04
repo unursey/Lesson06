@@ -7,7 +7,7 @@ const isPrime = (num) => {
         }   
     } 
     
-    return true;
+    return num > 1;
 };
 
-console.log(isPrime(10000019));
+console.log(isPrime(1));

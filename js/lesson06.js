@@ -39,13 +39,14 @@ const allCashbox2 = [
 ];
 
 
-const filter = (arr1, arr2, arr3) => {
+const filter = (arr1, arr2) => {
+  const coolStudents = [];
   for (const elem of arr1) {
     if (!arr2.includes(elem)) {
-      arr3.push(elem);
+      coolStudents.push(elem);
     }
   }
-  return arr3;
+  return coolStudents;
 };
 
 
@@ -60,11 +61,7 @@ const getAverageValue = (arr) => {
   return Math.floor(sum / arr.length);
 };
 
-const addPrefix = (arr, prefix) => {
-  const newArr = arr.map((n) => prefix + " " + n);
-
-  return newArr;
-};
+const addPrefix = (arr, prefix) => arr.map((n) => prefix + " " + n);
 
 
 const getAveragePriceGoods = (arr) => {
@@ -86,7 +83,7 @@ const getAveragePriceGoods = (arr) => {
 };
 
 
-console.log(filter(allStudents, failedStudents, coolStudents));
-console.log(getAverageValue(allCashbox));
-console.log(addPrefix(names, "Mr"));
-console.log(getAveragePriceGoods(allCashbox2));
+//console.log(filter(allStudents, failedStudents));
+//console.log(getAverageValue(allCashbox));
+//console.log(addPrefix(names, "Mr"));
+//console.log(getAveragePriceGoods(allCashbox2));

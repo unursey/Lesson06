@@ -16,7 +16,7 @@ const start = () => {
     numberOne = prompt("Укажите начало диапазона");
     if (numberOne === null) {
       alert("Игра окончена!");
-      start();
+      return;
     }
   }
 
@@ -24,7 +24,7 @@ const start = () => {
     numberTwo = prompt("Укажите конец диапазона");
     if (numberTwo === null) {
       alert("Игра окончена!");
-      start();
+      return;
     }
   }
 

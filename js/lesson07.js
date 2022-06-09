@@ -2,6 +2,7 @@
 
 
 const arr = (length, m, n, str) => {
+    if (length < 0) return;
 
     if (n < m) return arr(length, n, m, str);
 

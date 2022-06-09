@@ -15,7 +15,7 @@ const start = () => {
     numberOne = prompt("Укажите начало диапазона");
     if (numberOne === null) {
       alert("Игра окончена!");
-      return;
+        return;
     }
   }
 
@@ -23,7 +23,7 @@ const start = () => {
     numberTwo = prompt("Укажите конец диапазона");
     if (numberTwo === null) {
       alert("Игра окончена!");
-      return;
+        return;
     }
   }
 
@@ -34,16 +34,13 @@ const start = () => {
   arr.push(numberTwo);
   console.log("Массив", arr);
 
-  //const randomNumber = Math.floor(Math.random() * (numberTwo + 1 - numberOne) + numberOne);
   const randomNumber =
     Math.floor(Math.random() * (arr[1] - arr[0] + 1)) + arr[0];
 
   console.log(randomNumber);
 
-  const range = (arr[1] - arr[0] + 1);
+  const range = Math.abs(arr[1] - arr[0] + 1);
 
-  /* const randomNumber = Math.floor(Math.random() * 100 + 1);
-  let attempt = 15;*/
 
   if (range > 100) {
     attempt = Math.ceil(range * 0.3);
@@ -66,46 +63,45 @@ const start = () => {
         alert("До свидания!");
         return;
       }
-    } else {
-      const userNumber = prompt(
-        `Угадайте число от ${numberOne} до ${numberTwo}:`
-      );
+    }
 
-      if (userNumber === null) {
-        alert("Игра окончена!");
+    const userNumber = prompt(
+      `Угадайте число от ${numberOne} до ${numberTwo}:`
+    );
+
+    if (userNumber === null) {
+      alert("Игра окончена!");
+        return;
+    }
+
+    if (userNumbers.includes(userNumber)) {
+      attempt++;
+      alert("Это число Вы уже вводили.");
+    } else {
+      userNumbers.push(userNumber);
+      console.log(userNumbers);
+    }
+
+    if (+userNumber === randomNumber) {
+      if (confirm("Вы победили! Еще?")) {
+        start();
+      } else {
+        alert("Приходите еще!");
         return;
       }
-      if (isNumber(userNumber)) {
-        const num = +userNumber;
-
-        if (userNumbers.includes(userNumber)) {
-          attempt++;
-          alert("Это число Вы уже вводили.");
-        } else {
-          userNumbers.push(userNumber);
-          console.log(userNumbers);
-        }
-
-        if (num > randomNumber) {
-          alert(`Меньше! Осталось ${attempt} попыток.`);
-          game();
-        } else if (num < randomNumber) {
-          alert(`Больше! Осталось ${attempt} попыток.`);
-          game();
-        } else {
-          if (confirm("Вы победили! Еще?")) {
-            start();
-          } else {
-            alert("Игра окончена!");
-            return;
-          }
-        }
-      } else {
-        attempt++;
-        alert("Введи число!");
-        game();
-      }
     }
+
+    if (isNumber(userNumber)) {
+      if (+userNumber > randomNumber) {
+        alert(`Меньше! Осталось ${attempt} попыток.`);
+      } else if (+userNumber < randomNumber) {
+        alert(`Больше! Осталось ${attempt} попыток.`);
+      }
+    } else {
+      attempt++;
+      alert("Введи число!");
+    }
+    game();
   };
   game();
 };

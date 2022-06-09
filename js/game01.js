@@ -11,7 +11,6 @@ const start = () => {
     return !isNaN(parseFloat(n)) && isFinite(n);
   };
   
-  
   while (!isNumber(numberOne)) {
     numberOne = prompt("Укажите начало диапазона");
     if (numberOne === null) {

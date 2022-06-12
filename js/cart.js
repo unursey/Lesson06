@@ -1,43 +1,43 @@
+'use strict';
+
 const cart = {
-    items: [],
-    get totalPrice() {
-        return this.calculateItemPrice();
-    },
-    count: 0,
+  items: [],
+  get totalPrice() {
+    return this.calculateItemPrice();
+  },
+  count: 0,
 
-    add (item, price, qty = 1) {
-        const addItems = {
-            item,
-            price,
-            qty,
-        };
+  add(item, price, qty = 1) {
+    const addItems = {
+      item,
+      price,
+      qty,
+    };
 
-        this.items.push(addItems);
-        this.increaseCount();
-    },
+    this.items.push(addItems);
+    this.increaseCount();
+  },
 
-    increaseCount() {
-        this.count = this.items.reduce((acc, {qty}) => 
-        acc + qty, 0);
-        console.log(this.count);
-       //this.count += num;
-    },    
+  increaseCount() {
+    this.count = this.items.reduce((acc, {qty}) => acc + qty, 0);
+    console.log(this.count);
+    // this.count += num;
+  },
 
-    calculateItemPrice() {
-        return this.items.reduce((acc, {price, qty}) =>
-        acc + price*qty, 0);
-    },
+  calculateItemPrice() {
+    return this.items.reduce((acc, {price, qty}) => acc + price * qty, 0);
+  },
 
-    clear() {
-        this.items = [];
-        this.count = 0;
-        this.totalPrice = 0;
-    },
+  clear() {
+    this.items = [];
+    this.count = 0;
+    this.totalPrice = 0;
+  },
 
-    print() {
-        console.log(`${JSON.stringify(this.items)}
+  print() {
+    console.log(`${JSON.stringify(this.items)}
         Общая сумма: ${this.totalPrice}`);
-    },
+  },
 };
 
 cart.add('таблетки', 10, 6);
@@ -54,7 +54,6 @@ console.log(cart.totalPrice);
 cart.clear();
 cart.print();
 
+// cart.clear();
 
-//cart.clear();
-
-//cart.print();
+// cart.print();

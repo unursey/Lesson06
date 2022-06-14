@@ -24452,4 +24452,4 @@ const listIPv4 = [
 
   
 
-console.log(`Всего уникальных IP-адресов: ${unique(listIPv4)} из ${listIPv4.length}`);
+//console.log(`Всего уникальных IP-адресов: ${unique(listIPv4)} из ${listIPv4.length}`);
